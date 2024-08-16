@@ -4,7 +4,7 @@ const shadow = document.querySelector(".shadow");
 const giftContainer = document.querySelector(".gift-container");
 const text = document.querySelector(".text");
 const birthdayMusic = document.getElementById("birthdayMusic");
-const coFFeti = document.getElementById(".dialog-birthday_message");
+const coFFeti = document.getElementById("birthdayBallon");
 
 click.addEventListener("click", () => {
   if (click.className === "click") {

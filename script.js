@@ -1,23 +1,38 @@
-const click = document.querySelector(".click");
-const giftBox = document.querySelector(".gift-box");
-const shadow = document.querySelector(".shadow");
-const giftContainer = document.querySelector(".gift-container");
-const text = document.querySelector(".text");
+document.addEventListener("DOMContentLoaded", function () {
+  const sections = document.querySelectorAll("section");
+  const navLinks = document.querySelectorAll("nav a");
 
-click.addEventListener("click", () => {
-  if (click.className === "click") {
-    click.classList.add("active");
-    giftBox.classList.add("active");
-    shadow.classList.add("active");
-    giftContainer.classList.add("active");
-    text.classList.add("active");
-    text.classList.remove("active2");
-  } else {
-    click.classList.remove("active");
-    giftBox.classList.remove("active");
-    shadow.classList.remove("active");
-    giftContainer.classList.remove("active");
-    text.classList.remove("active");
-    text.classList.add("activ2");
-  }
+  window.addEventListener("scroll", function () {
+    let current = "";
+
+    sections.forEach((section) => {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.clientHeight;
+
+      if (pageYOffset >= sectionTop - sectionHeight / 3) {
+        current = section.getAttribute("id");
+      }
+    });
+
+    navLinks.forEach((link) => {
+      link.classList.remove("aktif");
+      if (link.getAttribute("href").slice(1) === current) {
+        link.classList.add("aktif");
+      }
+    });
+  });
+});
+
+const mengetik = new Typed(".typing", {
+  strings: ["Fullstack Developer", "Cybersecurity Engineer"],
+  typeSpeed: 65,
+  backSpeed: 50,
+  loop: true,
+});
+
+const mengetikan = new Typed(".typing-2", {
+  strings: ["Fullstack Developer", "Cybersecurity Engineer"],
+  typeSpeed: 65,
+  backSpeed: 50,
+  loop: true,
 });
